@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
-// import '../css/Dashboard.css';
+import Container from './Container';
+import Grid from '@material-ui/core/Grid'
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+
 
 class Dashboard extends Component {
   constructor(props) {
@@ -7,28 +11,41 @@ class Dashboard extends Component {
     this.state = {
       notes: [
         {
-          title: 'Title 1',
-          content: 'First note content'
+          title: 'First note',
+          timestamp: '1 december 2020',
+          content: 'First note content.'
+        },
+        {
+          title: 'Second note',
+          timestamp: '1 december 2020',
+          content: 'Second note content.'
         },
       ],
     };
   }
 
   render () {
-    console.log(this.state.notes);
     return (
       <div className="Dashboard">
-        <div className="Navbar">
-          <span id='logo'>
-            Notes
-          </span>
-        </div>
-        <br />
-        <div className="NoteCatalog">
-          { this.state.notes[0].title }
-        </div>
+        <Grid container spacing={0}>
+          <Grid item xs={12} className="NavBar">
+            <AppBar className="AppBar" position="fixed">
+              <Toolbar>
+                <h1>Notes</h1>
+              </Toolbar>
+            </AppBar>
+          </Grid>
+          <br />
+          <br />
+          <br />
+          <Grid item xs={12} className="Notes" style={{ marginTop:'20px' }}>
+            { this.state.notes.map(note => <Container note={ note }/>)}
+            <br />
+            <br />
+          </Grid>
+        </Grid>
       </div>
-    )
+    );
   }
 }
 
