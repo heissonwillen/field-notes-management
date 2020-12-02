@@ -7,12 +7,12 @@ class Container extends Component {
  render() {
    return(
      <div className="Note">
-       <Paper className="NotePaper" style={{ background:'lightgreen'}}>
+       <Paper className="NotePaper" style={{ background:'lightgray'}}>
          <br />
-         <span id='title' > { this.props.note.title } </span> <span id="delete"> <DeleteForeverSharpIcon onClick={ () => this.props.removeNote(this.props.note.key) } style={{fontSize: '50px'}}/> </span> <br />
-         <span id='timestamp' > { this.props.note.timestamp } </span> <br /><br />
+         <span id='title' > { this.props.note.title } </span>
+         <span id='timestamp' > { this.props.note.timestamp } </span>
+         <br />
          <span id='content' > { this.props.note.content } </span>
-         <br /><br />
        </Paper>
      </div>
    );

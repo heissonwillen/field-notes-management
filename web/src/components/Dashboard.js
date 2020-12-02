@@ -126,7 +126,7 @@ class Dashboard extends Component {
                 <Grid item xs={12} className="NavBar">
                   <AppBar className="AppBar" position="fixed">
                     <Toolbar>
-                      <h1>My Notes</h1>
+                      <h1>Your Field Notes</h1>
                       <Button variant="contained" onClick={ this.logOut } style={{position:'fixed', right:'12px'}}>
                         Log Out
                       </Button>
