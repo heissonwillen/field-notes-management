@@ -127,98 +127,92 @@ class Dashboard extends Component {
      bottom: '6%',
    };
    return (
-        <div>
-        {
-          localStorage.getItem('LOCAL_UID') != undefined ?
-          (
-            <div className="Dashboard">
-              <Grid container spacing={0}>
-                <Grid item xs={12} className="NavBar">
-                  <AppBar className="AppBar" position="fixed">
-                    <Toolbar>
-                      <h1>Your Field Notes</h1>
-                      <Button variant="contained" onClick={ this.logOut } style={{position:'fixed', right:'12px'}}>
-                        Log Out
-                      </Button>
-                    </Toolbar>
-                  </AppBar>
-                </Grid>
-                <br />
-                <br />
-                <br />
-                <Grid item xs={12} className="Notes" style={{ marginTop:'20px' }}>
-                  { this.state.notes.map(note => <Container removeNote={ this.removeNote } note={ note } key={ note.key }/> )}
-                  <br />
-                  <br />
-                </Grid>
-              </Grid>
-              <Button className='AddButton' onClick={this.handleClickOpen} style={ AddButtonStyle } variant="fab" color="primary" aria-label="Add">
-                <AddIcon />
-              </Button>
-              <Dialog
-                open={this.state.open}
-                TransitionComponent={Transition}
-                keepMounted
-                onClose={this.handleClose}
-                aria-labelledby="alert-dialog-slide-title"
-                aria-describedby="alert-dialog-slide-description"
-              >
-                <DialogTitle id="alert-dialog-slide-title">
-                    <TextField
-                      id="itle"
-                      label="Author"
-                      placeholder="Note Author"
-                      className={classes.textField}
-                      value={this.state.author}
-                      onChange={this.handleChange('author')}
-                      margin="normal"
-                    />
-                </DialogTitle>
-                <DialogContent>
-                  <DialogContentText id="alert-dialog-slide-description">
-                  <TextField
-                    id="description"
-                    label="Description"
-                    placeholder="Add your note here"
-                    multiline
-                    value={this.state.description}
-                    className={classes.textField}
-                    onChange={this.handleChange('description')}
-                    margin="normal"
-                  />
-                  </DialogContentText>
-                </DialogContent>
-                <DialogContent>
-                  <DialogContentText id="alert-dialog-slide-description">
-                  <TextField
-                    id="date"
-                    label="Birthday"
-                    type="date"
-                    onChange={date => this.handleDateChange(date)}
-                    className={classes.textField}
-                    InputLabelProps={{
-                      shrink: true,
-                    }}
-                  />
-                  </DialogContentText>
-                </DialogContent>
+     <div> { localStorage.getItem('LOCAL_UID') !== undefined ? (
+       <div className="Dashboard">
+        <Grid container spacing={0}>
+          <Grid item xs={12} className="NavBar">
+            <AppBar className="AppBar" position="fixed">
+              <Toolbar>
+                <h1>Your Field Notes</h1>
+                <Button variant="contained" onClick={ this.logOut } style={{position:'fixed', right:'12px'}}>
+                  Log Out
+                </Button>
+              </Toolbar>
+            </AppBar>
+            </Grid>
+            <br />
+            <br />
+            <br />
+            <Grid item xs={12} className="Notes" style={{ marginTop:'20px' }}>
+              { this.state.notes.map(note => <Container removeNote={ this.removeNote } note={ note } key={ note.key }/> )}
+              <br />
+              <br />
+            </Grid>
+          </Grid>
+          <Button className='AddButton' style={AddButtonStyle} onClick={this.handleClickOpen} color="primary" variant="contained">
+            New Note
+          </Button>
+          <Dialog
+            open={this.state.open}
+            TransitionComponent={Transition}
+            keepMounted
+            onClose={this.handleClose}
+            aria-labelledby="alert-dialog-slide-title"
+            aria-describedby="alert-dialog-slide-description"
+          >
+            <DialogTitle id="alert-dialog-slide-title">
+              <TextField
+                required
+                id="itle"
+                label="Author"
+                placeholder="Note Author"
+                className={classes.textField}
+                value={this.state.author}
+                onChange={this.handleChange('author')}
+                margin="normal"
+              />
+            </DialogTitle>
+            <DialogContent>
+              <DialogContentText id="alert-dialog-slide-description">
+              <TextField
+                required
+                id="description"
+                label="Description"
+                placeholder="Add your note here"
+                multiline
+                value={this.state.description}
+                className={classes.textField}
+                onChange={this.handleChange('description')}
+                margin="normal"
+              />
+              </DialogContentText>
+            </DialogContent>
+            <DialogContent>
+              <DialogContentText id="alert-dialog-slide-description">
+              <TextField
+                required
+                id="date"
+                label="Birthday"
+                type="date"
+                onChange={date => this.handleDateChange(date)}
+                className={classes.textField}
+                InputLabelProps={{
+                  shrink: true,
+                }}
+              />
+              </DialogContentText>
+              </DialogContent>
                 <DialogActions>
-                  <Button onClick={this.handleClose} color="secondary">
-                    Cancel
-                  </Button>
-                  <Button onClick={this.addNote} color="primary">
-                    Add
-                  </Button>
+                  <Button onClick={this.handleClose} color="secondary">Cancel</Button>
+                  <Button onClick={this.addNote} color="primary">Add</Button>
                 </DialogActions>
               </Dialog>
             </div>
-          ):(
-            <h1>Please log in to continue</h1>
-          )
+          ) : (<h1>Please log in to continue</h1>)
         }
-        </div>
-      );
- }
+      </div>
+    );
+  }
 }
 
 Dashboard.propTypes = {
