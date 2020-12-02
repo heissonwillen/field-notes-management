@@ -1,0 +1,12 @@
+#screenshot {
+   max-width: 60%;
+   max-height: 60%;
+   margin-left: 40%;
+   border-style: groove;
+}
+#desc {
+   font-size: 30px;
+   margin-left: 80px;
+   margin-top: 150px;
+   font-weight: 700;
+}
