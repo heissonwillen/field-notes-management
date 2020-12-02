@@ -33,6 +33,12 @@ In order to build this projets, the following tech stack was used.
 * [Material UI](https://material-ui.com/)
 
 ## Screenshots
+<<<<<<< HEAD
 <img src="img/01 - screenshot" alt="Screenshot" height="200">
 <img src="img/01 - screenshot" alt="Screenshot" height="200">
 <img src="img/01 - screenshot" alt="Screenshot" height="200">
+=======
+<img src="img/01screenshot.png" alt="Screenshot" height="200">
+<img src="img/02screenshot.png" alt="Screenshot" height="200">
+<img src="img/03screenshot.png" alt="Screenshot" height="200">
+>>>>>>> 04d006cdf85dd076876eaa679348a7fc519c0114
