@@ -14,6 +14,7 @@ import Slide from '@material-ui/core/Slide';
 import TextField from '@material-ui/core/TextField';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import DatePicker from 'react-datepicker';
 import { addToDB, removeFromDB, logOut, fetchFromDB } from '../firebase/firebase';
 
 function Transition(props) {
@@ -35,8 +36,9 @@ class Dashboard extends Component {
    this.state = {
      notes: [],
      open: false,
-     title: null,
-     content: null,
+     author: null,
+     description: null,
+     timestamp: null,
    };
  }
 
@@ -52,12 +54,13 @@ class Dashboard extends Component {
 
  addNote = () => {
    var date = new Date();
-   var timestamp = date.getDate() + '/' + (date.getMonth() + 1) + ' | ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
+   // var timestamp = date.getDate() + '/' + (date.getMonth() + 1) + ' | ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
+   var timestamp = this.state.timestamp;
    console.log(timestamp);
    var note = {};
-   note['title'] = this.state.title;
+   note['author'] = this.state.author;
    note['timestamp'] = timestamp;
-   note['content'] = this.state.content;
+   note['description'] = this.state.description;
    var key = addToDB(note);
    note['key'] = key;
    var notes = this.state.notes;
@@ -92,8 +95,8 @@ class Dashboard extends Component {
  handleClose = () => {
    this.setState({
      open: false,
-     title: '',
-     content: '',
+     author: '',
+     description: '',
    });
  };
 
@@ -101,6 +104,13 @@ class Dashboard extends Component {
    this.setState({
      [name]: event.target.value,
    });
+ };
+
+ handleDateChange = event => {
+   this.setState({
+     timestamp: event.target.value,
+   });
+   console.log(event.target.value);
  };
 
  logOut = () => {
@@ -156,25 +166,39 @@ class Dashboard extends Component {
                 <DialogTitle id="alert-dialog-slide-title">
                     <TextField
                       id="itle"
-                      label="Title"
-                      placeholder="Note Title"
+                      label="Author"
+                      placeholder="Note Author"
                       className={classes.textField}
-                      value={this.state.title}
-                      onChange={this.handleChange('title')}
+                      value={this.state.author}
+                      onChange={this.handleChange('author')}
                       margin="normal"
                     />
                 </DialogTitle>
                 <DialogContent>
                   <DialogContentText id="alert-dialog-slide-description">
                   <TextField
-                    id="content"
-                    label="Content"
+                    id="description"
+                    label="Description"
                     placeholder="Add your note here"
                     multiline
-                    value={this.state.content}
+                    value={this.state.description}
                     className={classes.textField}
-                    onChange={this.handleChange('content')}
+                    onChange={this.handleChange('description')}
                     margin="normal"
+                  />
+                  </DialogContentText>
+                </DialogContent>
+                <DialogContent>
+                  <DialogContentText id="alert-dialog-slide-description">
+                  <TextField
+                    id="date"
+                    label="Birthday"
+                    type="date"
+                    onChange={date => this.handleDateChange(date)}
+                    className={classes.textField}
+                    InputLabelProps={{
+                      shrink: true,
+                    }}
                   />
                   </DialogContentText>
                 </DialogContent>

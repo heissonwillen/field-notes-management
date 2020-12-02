@@ -14,9 +14,9 @@ firebase.initializeApp(firebaseConfig);
 
 export const addToDB = (note) => {
   const NoteRef = firebase.database().ref('notes/' + localStorage.getItem('LOCAL_UID')).push({
-     title: note.title,
+     author: note.author,
      timestamp: note.timestamp,
-     content : note.content
+     description : note.description
    });
    return NoteRef.key;
 }

@@ -9,10 +9,11 @@ class Container extends Component {
      <div className="Note">
        <Paper className="NotePaper" style={{ background:'lightgray'}}>
          <br />
-         <span id='title' > { this.props.note.title } </span>
-         <span id='timestamp' > { this.props.note.timestamp } </span>
+         <span id='description' > { this.props.note.description } </span>
          <br />
-         <span id='content' > { this.props.note.content } </span>
+         <br />
+         <span id='author' > Taken by { this.props.note.author } </span>
+         <span id='timestamp' > ({ this.props.note.timestamp }) </span>
        </Paper>
      </div>
    );
