@@ -27,7 +27,7 @@ Click [here](https://field-notes-app.web.app/) to try it out.
 * Default password: 12345678
 
 ## Technologies
-In order to build this projets, the following tech stack was used.
+In order to build this project, the following tech stack was used.
 * [React](https://reactjs.org/)
 * [Firebase](https://firebase.google.com/)
 * [Material UI](https://material-ui.com/)
