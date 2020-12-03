@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import AccountCircle from '@material-ui/icons/AccountCircle';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import { logIn } from '../firebase/firebase';
@@ -43,53 +42,49 @@ class Home extends Component {
         <Grid container spacing={0}>
           <Grid item xs={12}>
             <AppBar position="static">
-              <Toolbar>
-                <h1>Field Notes App</h1>
-              </Toolbar>
+              <Toolbar> <h1>Field Notes App</h1> </Toolbar>
             </AppBar>
           </Grid>
-          <br />
-          <br />
-          <br />
-            <Container component="main" maxWidth="xs">
-              <CssBaseline />
-              <div className="paper">
-                <form className="form" noValidate>
-                  <TextField
-                    variant="outlined"
-                    margin="normal"
-                    required
-                    fullWidth
-                    id="email"
-                    onChange={this.handleChange('email')}
-                    label="Email Address"
-                    name="email"
-                    autoComplete="email"
-                    autoFocus
-                  />
-                  <TextField
-                    variant="outlined"
-                    margin="normal"
-                    required
-                    fullWidth
-                    name="password"
-                    label="Password"
-                    type="password"
-                    id="password"
-                    onChange={this.handleChange('password')}
-                    autoComplete="current-password"
-                  />
-                  <Button
-                    fullWidth
-                    variant="contained"
-                    color="primary"
-                    onClick={this.signIn}
-                  >
-                    Sign In
-                  </Button>
-                </form>
-              </div>
-            </Container>
+          <br /><br /><br />
+          <Container component="main" maxWidth="xs">
+            <CssBaseline />
+            <div className="paper">
+              <form className="form" noValidate>
+                <TextField
+                  variant="outlined"
+                  margin="normal"
+                  required
+                  fullWidth
+                  id="email"
+                  onChange={this.handleChange('email')}
+                  label="Email Address"
+                  name="email"
+                  autoComplete="email"
+                  autoFocus
+                />
+                <TextField
+                  variant="outlined"
+                  margin="normal"
+                  required
+                  fullWidth
+                  name="password"
+                  label="Password"
+                  type="password"
+                  id="password"
+                  onChange={this.handleChange('password')}
+                  autoComplete="current-password"
+                />
+                <Button
+                  fullWidth
+                  variant="contained"
+                  color="primary"
+                  onClick={this.signIn}
+                >
+                  Sign In
+                </Button>
+              </form>
+            </div>
+          </Container>
         </Grid>
       </div>
     );
