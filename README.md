@@ -22,7 +22,7 @@
 </details>
 
 ## Try It!
-Click [here](link) to try it out.
+Click [here](https://field-notes-app.web.app/) to try it out.
 * Default user: test@test.com
 * Default password: 12345678
 
